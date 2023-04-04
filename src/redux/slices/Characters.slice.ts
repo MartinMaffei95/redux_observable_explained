@@ -1,0 +1,47 @@
+//MODELS
+import { CharacterState, Character } from '../../models';
+// REDUX LIB TYPES
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+// COMPONENTS
+import { sendSnackbar } from '../../services/snackbar.manager';
+
+const initialState: CharacterState = {
+  character: {} as Character,
+  loading: false,
+};
+
+export const charactersSlice = createSlice({
+  name: 'characters',
+  initialState: initialState,
+  reducers: {
+    getCharacter: (state, action) => {
+      sendSnackbar.info('arrancamo');
+      console.log(action);
+      state.loading = true;
+    },
+    getCharacterSuccess: (state, action: PayloadAction<Character>) => {
+      state.loading = false;
+      state.character = action.payload;
+      sendSnackbar.success('todo ok');
+    },
+    getCharacterError: (state, action) => {
+      state.loading = false;
+
+      sendSnackbar.error('todo mal');
+    },
+    stopFetchCharacter: (state) => {
+      state.loading = false;
+
+      sendSnackbar.warning('Se detuvo la petición');
+    },
+  },
+});
+
+export const {
+  getCharacter,
+  getCharacterSuccess,
+  getCharacterError,
+  stopFetchCharacter,
+} = charactersSlice.actions;
+
+export default charactersSlice.reducer;
