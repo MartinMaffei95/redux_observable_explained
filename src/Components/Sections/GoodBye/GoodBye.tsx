@@ -18,13 +18,13 @@ const GoodBye = () => {
         </p>
         <div className="linksContainer">
           <LinkCard
-            link="https://www.linkedin.com/in/martinmaffei95/"
+            link="https://github.com/MartinMaffei95/observable_example"
             label="Ejempo Redux Observable - Repositorio"
             icon={<AiFillGithub size="3rem" />}
             color="#ffffff"
           />
           <LinkCard
-            link="https://www.linkedin.com/in/martinmaffei95/"
+            link="https://observable-example.vercel.app/"
             label="Ejempo Redux Observable - Deploy"
             icon={<AiFillRocket size="3rem" />}
             color="#eb6a07"
