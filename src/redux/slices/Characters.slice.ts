@@ -15,19 +15,19 @@ export const charactersSlice = createSlice({
   initialState: initialState,
   reducers: {
     getCharacter: (state, action) => {
-      sendSnackbar.info('arrancamo');
+      sendSnackbar.info('Peticion GET ejecutada');
+
       console.log(action);
       state.loading = true;
     },
     getCharacterSuccess: (state, action: PayloadAction<Character>) => {
       state.loading = false;
       state.character = action.payload;
-      sendSnackbar.success('todo ok');
+      sendSnackbar.success('Peticion GET resuelta');
     },
     getCharacterError: (state, action) => {
       state.loading = false;
-
-      sendSnackbar.error('todo mal');
+      sendSnackbar.error('Ocurrio un error');
     },
     stopFetchCharacter: (state) => {
       state.loading = false;
